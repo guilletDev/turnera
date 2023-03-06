@@ -1,99 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Formulario de Turnos</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-      }
-
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-      }
-
-      h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-      }
-
-      label {
-        font-size: 16px;
-        margin-bottom: 5px;
-      }
-
-      input[type="text"],
-      input[type="email"],
-      input[type="tel"] {
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: none;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      input[type="submit"] {
-        background-color: #428bca;
-        color: #fff;
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-      }
-
-      .flatpickr-calendar {
-        z-index: 9999;
-      }
-
-      .flatpickr-input {
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: none;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="container">
-      <h1>Formulario de Turnos</h1>
-      <form>
-        <label>Nombre completo:</label>
-        <input type="text" name="nombre" required>
-
-        <label>Correo electrónico:</label>
-        <input type="email" name="email" required>
-
-        <label>Teléfono:</label>
-        <input type="tel" name="telefono" required>
-
-        <label>Fecha y hora:</label>
-        <input type="text" name="fecha_hora" id="fecha_hora" required>
-
-        <input type="submit" value="Solicitar turno">
-      </form>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-      flatpickr("#fecha_hora", {
-        enableTime: true,
-        minDate: "today",
-        dateFormat: "d/m/Y H:i",
-        time_24hr: true
-      });
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnera</title>
+</head>
+<body>
+    
+  <form style="max-width: 600px; margin: auto;">
+      <h2 style="text-align: center; font-weight: 500;">Reserva un turno</h2>
+      <div style="margin-top: 20px;">
+          <label for="full_name" style="display: block; margin-bottom: 5px;">Nombre completo:</label>
+          <input type="text" id="full_name" required style="border: 1px solid #cacaca; padding: 10px; width: 100%;" />
+      </div>
+      <div style="margin-top: 20px;">
+          <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+          <input type="email" id="email" required style="border: 1px solid #cacaca; padding: 10px; width: 100%;" />
+      </div>
+      <div style="margin-top: 20px;">
+          <label for="phone" style="display: block; margin-bottom: 5px;">Teléfono:</label>
+          <input type="tel" id="phone" required style="border: 1px solid #cacaca; padding: 10px; width: 100%;" />
+      </div>
+      <div style="margin-top: 20px;">
+          <label for="date" style="display: block; margin-bottom: 5px;">Fecha:</label>
+          <input type="date" id="date" required min="<?php echo date('Y-m-d');?>" style="border: 1px solid #cacaca; padding: 10px; width: 100%;" />
+      </div>
+      <div style="margin-top: 20px;">
+          <label for="time" style="display: block; margin-bottom: 5px;">Hora:</label>
+          <select id="time" required style="border: 1px solid #cacaca; padding: 10px; width: 100%;">
+              <option value="" selected disabled>Seleccione una hora</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="1:00 PM">1:00 PM</option>
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="3:00 PM">3:00 PM</option>
+              <option value="4:00 PM">4:00 PM</option>
+              <option value="5:00 PM">5:00 PM</option>
+          </select>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+          <button type="submit" style="background-color: #3f51b5; color: #fff; border: none; padding: 10px 20px;">Reservar turno</button>
+      </div>
+  </form>
+</body>
 </html>
